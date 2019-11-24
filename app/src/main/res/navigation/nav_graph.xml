@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ua.example.savestate.main.MainFragment"
+        android:label="Blank"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_newFragment"
+            app:destination="@id/newFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_oldFragment"
+            app:destination="@id/oldFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newFragment"
+        android:name="ua.example.savestate.newApproach.NewFragment"
+        android:label="fragment_new"
+        tools:layout="@layout/fragment_new" />
+    <fragment
+        android:id="@+id/oldFragment"
+        android:name="ua.example.savestate.old.OldFragment"
+        android:label="fragment_old"
+        tools:layout="@layout/fragment_chuck" />
+
+</navigation>

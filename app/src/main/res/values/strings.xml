@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SaveState</string>
+    <string name="fragment_main_btn_old">Try old approach</string>
+    <string name="fragment_main_btn_new">Try new approach</string>
+
+    <string name="fragment_main_tv_default">Default</string>
+    <string name="fragment_main_tv_error">Omg, something went wrong</string>
+    <string name="fragment_main_tv_old">Previously you selected old approach</string>
+    <string name="fragment_main_tv_new">Previously you selected new approach</string>
+    <string name="fragment_select_chuck">Select Chuck!</string>
+    <string name="fragment_chuck_first">Chuck 1</string>
+    <string name="fragment_chuck_second">Chuck 2</string>
+    <string name="fragment_chuck_third">Chuck 3</string>
+</resources>
