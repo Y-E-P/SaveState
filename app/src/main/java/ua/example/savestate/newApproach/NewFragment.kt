@@ -2,9 +2,9 @@ package ua.example.savestate.newApproach
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import ua.example.savestate.base.BaseChuckFragment
+import ua.example.savestate.base.DummyDataProvider
 
 class NewFragment : BaseChuckFragment() {
 
@@ -25,10 +25,9 @@ class NewFragment : BaseChuckFragment() {
         }
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = SavedStateViewModelFactory(requireActivity().application, this).let {
+        viewModel = NewViewModelStateFactory(DummyDataProvider(), this).let {
             ViewModelProvider(this, it).get(NewViewModel::class.java)
         }
         viewModel.liveData.observe(viewLifecycleOwner, liveDataObserver)

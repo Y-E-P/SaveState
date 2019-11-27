@@ -1,15 +1,9 @@
-package ua.example.savestate.old
+package ua.example.savestate.oldApproach
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import ua.example.savestate.R
 import ua.example.savestate.base.BaseChuckFragment
-import ua.example.savestate.base.BaseFragment
-import ua.example.savestate.base.load
 
 class OldFragment : BaseChuckFragment() {
 

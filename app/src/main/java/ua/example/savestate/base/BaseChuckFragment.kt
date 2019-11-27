@@ -12,7 +12,7 @@ open class BaseChuckFragment : BaseFragment() {
     protected lateinit var buttonChuck1: Button
     protected lateinit var buttonChuck2: Button
     protected lateinit var buttonChuck3: Button
-    protected lateinit var imageView: ImageView
+    private lateinit var imageView: ImageView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,9 +23,11 @@ open class BaseChuckFragment : BaseFragment() {
         imageView = view.findViewById(R.id.fragment_image_view)
     }
 
+
     protected val liveDataObserver = Observer<String> {
         imageView.load(it)
     }
+
 
 
     override fun getLayoutId(): Int = R.layout.fragment_chuck

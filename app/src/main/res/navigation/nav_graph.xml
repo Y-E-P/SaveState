@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_new" />
     <fragment
         android:id="@+id/oldFragment"
-        android:name="ua.example.savestate.old.OldFragment"
+        android:name="ua.example.savestate.oldApproach.OldFragment"
         android:label="fragment_old"
         tools:layout="@layout/fragment_chuck" />
 

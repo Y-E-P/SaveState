@@ -1,4 +1,4 @@
-package ua.example.savestate.old
+package ua.example.savestate.oldApproach
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
