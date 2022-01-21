@@ -2,6 +2,7 @@ package ua.example.savestate.newApproach
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import ua.example.savestate.base.BaseChuckFragment
 import ua.example.savestate.base.DummyDataProvider
@@ -9,7 +10,9 @@ import ua.example.savestate.base.DummyDataProvider
 class NewFragment : BaseChuckFragment() {
 
 
-    private lateinit var viewModel: NewViewModel
+    private val viewModel by viewModels<NewViewModel> {
+        NewViewModelStateFactory(DummyDataProvider(), this)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,14 +26,6 @@ class NewFragment : BaseChuckFragment() {
         buttonChuck3.setOnClickListener {
             viewModel.requestDummyData(2)
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = NewViewModelStateFactory(DummyDataProvider(), this).let {
-            ViewModelProvider(this, it).get(NewViewModel::class.java)
-        }
         viewModel.liveData.observe(viewLifecycleOwner, liveDataObserver)
     }
-
 }

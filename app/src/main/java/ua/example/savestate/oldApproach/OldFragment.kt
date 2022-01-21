@@ -2,6 +2,7 @@ package ua.example.savestate.oldApproach
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProviders
 import ua.example.savestate.base.BaseChuckFragment
 
@@ -11,7 +12,7 @@ class OldFragment : BaseChuckFragment() {
         private const val BUNDLE_STR_DATA = "bundle_str_data"
     }
 
-    private lateinit var viewModel: OldViewModel
+    private val viewModel by viewModels<OldViewModel>()
     private var selectedId = -1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,11 +30,6 @@ class OldFragment : BaseChuckFragment() {
             viewModel.requestDummyData(2)
             selectedId = 2
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(OldViewModel::class.java)
         viewModel.liveData.observe(viewLifecycleOwner, liveDataObserver)
         savedInstanceState?.let { bundle ->
             bundle.getInt(BUNDLE_STR_DATA).let {
@@ -43,7 +39,6 @@ class OldFragment : BaseChuckFragment() {
             }
         }
     }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
