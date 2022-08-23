@@ -25,7 +25,7 @@ class NewViewModel(
     }
 
     fun requestDummyData(someId: Int) {
-        state.set(STATE_ID, someId)
+        state[STATE_ID] = someId
         _liveData.value = dataProvider.chuckImages[someId]
     }
 

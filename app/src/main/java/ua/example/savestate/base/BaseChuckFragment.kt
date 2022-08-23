@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.lifecycle.Observer
 import ua.example.savestate.R
 
-open class BaseChuckFragment : BaseFragment() {
+open class BaseChuckFragment : BaseFragment(R.layout.fragment_chuck) {
 
     protected lateinit var buttonChuck1: Button
     protected lateinit var buttonChuck2: Button
@@ -27,8 +27,4 @@ open class BaseChuckFragment : BaseFragment() {
     protected val liveDataObserver = Observer<String> {
         imageView.load(it)
     }
-
-
-
-    override fun getLayoutId(): Int = R.layout.fragment_chuck
 }

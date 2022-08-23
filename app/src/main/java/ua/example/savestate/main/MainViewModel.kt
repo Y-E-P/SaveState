@@ -10,11 +10,10 @@ class MainViewModel(private val state: SavedStateHandle) : ViewModel() {
         private const val INFO_STATE = "info_state"
     }
 
-
     fun getInfo(): LiveData<State> = state.getLiveData(INFO_STATE, State.DEFAULT)
 
     fun saveInfoData(infoState: State) {
-        state.set(INFO_STATE, infoState)
+        state[INFO_STATE] = infoState
     }
 }
 

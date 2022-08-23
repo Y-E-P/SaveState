@@ -4,20 +4,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.SavedStateViewModelFactory
-import androidx.lifecycle.ViewModelProvider
 import ua.example.savestate.R
 import ua.example.savestate.base.BaseFragment
 
 
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     private lateinit var buttonOld: Button
     private lateinit var buttonNew: Button
     private lateinit var textinfo: TextView
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,11 +35,8 @@ class MainFragment : BaseFragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = SavedStateViewModelFactory(requireActivity().application, this).let {
-            ViewModelProvider(this, it).get(MainViewModel::class.java)
-        }
+    override fun onResume() {
+        super.onResume()
         viewModel.getInfo().observe(viewLifecycleOwner, infoObserver)
     }
 
@@ -52,6 +48,4 @@ class MainFragment : BaseFragment() {
             else -> R.string.fragment_main_tv_error
         }.also { stringRes -> textinfo.setText(stringRes) }
     }
-
-    override fun getLayoutId(): Int = R.layout.fragment_main
 }
